@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.'
+      redirect_to @post, notice: t('controllers.common.created', model: '投稿')
     else
       render :new, status: :unprocessable_entity
     end
@@ -25,7 +25,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to @post, notice: 'Post was successfully updated.', status: :see_other
+      redirect_to @post, notice: t('controllers.common.updated', model: '投稿'), status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy!
-    redirect_to posts_url, notice: 'Post was successfully destroyed.', status: :see_other
+    redirect_to posts_url, notice: t('controllers.common.destroyed', model: '投稿'), status: :see_other
   end
 
   private
