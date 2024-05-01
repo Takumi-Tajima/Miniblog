@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
-      redirect_to post_path(@post), notice: t('controllers.common.created', model: '投稿')
+      redirect_to posts_path, notice: t('controllers.common.created', model: '投稿')
     else
       render :new, status: :unprocessable_entity
     end
