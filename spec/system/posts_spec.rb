@@ -25,6 +25,7 @@ RSpec.describe 'ポスト機能', type: :system do
         click_on '登録する'
         expect(page).to have_content '投稿を登録しました。'
       end.to change(Post, :count).by(1)
+      expect(page).to have_content 'fuga'
     end
   end
 end
