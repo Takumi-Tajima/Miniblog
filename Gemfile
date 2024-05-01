@@ -17,11 +17,11 @@ gem 'turbo-rails'
 group :development, :test do
   gem 'debug'
   gem 'factory_bot_rails'
+  gem 'haml-rails'
   gem 'rspec-rails'
 end
 
 group :development do
-  gem 'haml-rails'
   gem 'rubocop', require: false
   gem 'sgcop', github: 'SonicGarden/sgcop'
   gem 'web-console'
