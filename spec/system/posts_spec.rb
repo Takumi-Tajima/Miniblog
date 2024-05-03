@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'ポスト機能', type: :system do
   describe 'ポストの表示機能' do
-    let!(:post) { create(:post, contents: 'hogehoge') }
+    let!(:post) { create(:post, content: 'hogehoge') }
 
     it 'ポスト一覧画面で表示されること' do
       visit root_path
@@ -29,7 +29,7 @@ RSpec.describe 'ポスト機能', type: :system do
     end
 
     it 'ポストを編集できること' do
-      post = create(:post, contents: 'foobar')
+      post = create(:post, content: 'foobar')
       visit post_path(post)
       expect(page).to have_content 'foobar'
       click_on '編集'
@@ -41,7 +41,7 @@ RSpec.describe 'ポスト機能', type: :system do
     end
 
     it 'ポストを削除できること' do
-      post = create(:post, contents: 'MudaMuda')
+      post = create(:post, content: 'MudaMuda')
       visit post_path(post)
       expect(page).to have_content 'MudaMuda'
       expect do

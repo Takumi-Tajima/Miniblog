@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :post do
-    contents { 'hogehoge' }
+    content { 'hogehoge' }
   end
 end

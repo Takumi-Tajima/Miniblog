@@ -2,7 +2,7 @@ ja:
   activerecord:
     attributes:
       post:
-        contents: 内容
+        content: 内容
   date:
     abbr_day_names:
       - 日
