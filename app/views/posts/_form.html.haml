@@ -1,7 +1,7 @@
-= simple_form_for @post do |f|
-  - if @post.errors.any?
+= simple_form_for post do |f|
+  - if post.errors.any?
     %ul
-      - @post.errors.full_messages.each do |message|
+      - post.errors.full_messages.each do |message|
         %li= message
   = f.input :contents, placeholder: '文章を入力してください'
   = f.button :submit, class: 'btn btn-primary'
