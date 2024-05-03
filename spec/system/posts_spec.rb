@@ -4,7 +4,7 @@ RSpec.describe 'ポスト機能', type: :system do
   describe 'ポストの表示機能' do
     let!(:post) { create(:post, content: 'hogehoge') }
 
-    it 'ポスト一覧画面で表示されること' do
+    it 'トップページで表示されること' do
       visit root_path
       expect(page).to have_content 'hogehoge'
     end
