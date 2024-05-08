@@ -8,13 +8,13 @@ class PostsController < ApplicationController
   def show; end
 
   def new
-    @post = Post.new
+    @post = current_user.post.build
   end
 
   def edit; end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.post.build(post_params)
 
     if @post.save
       redirect_to posts_path, notice: t('controllers.common.created', model: '投稿')
