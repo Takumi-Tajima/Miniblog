@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :ensure_ownership, only: %i[edit update destroy]
 
   def index
     @posts = Post.default_order
@@ -41,6 +42,12 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def ensure_ownership
+    unless @post.user == current_user
+      redirect_to root_path
+    end
   end
 
   def post_params
