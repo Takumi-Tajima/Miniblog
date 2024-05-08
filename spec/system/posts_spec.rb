@@ -61,7 +61,7 @@ RSpec.describe 'ポスト機能', type: :system do
 
     context '他人の投稿の時' do
       let(:user) { create(:user) }
-      let(:user2) { create(:user, name: 'Mac', email: 'sample@example.com') }
+      let(:user2) { create(:user) }
       let!(:post) { create(:post, user: user2) }
 
       before do
