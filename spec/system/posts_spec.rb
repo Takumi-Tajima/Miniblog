@@ -54,7 +54,7 @@ RSpec.describe 'ポスト機能', type: :system do
         expect do
           click_on '削除'
           expect(page).to have_content '投稿を削除しました。'
-        end.to change(Post, :count).by(-1)
+        end.to change(user.posts, :count).by(-1)
         expect(page).not_to have_content 'MudaMuda'
       end
     end
