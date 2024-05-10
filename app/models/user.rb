@@ -9,11 +9,11 @@ class User < ApplicationRecord
   validates :name, presence: true, format: { with: /\A[a-zA-Z]+\z/ }, length: { maximum: 20 }
   validates :password, presence: true, length: { minimum: 6 }, format: { with: /\A(?=.*[a-zA-Z])(?=.*[0-9]).*\z/ }
 
-  def follow(user_id)
-    relationships.create(follower_id: user_id)
+  def follow(user)
+    relationships.create(follower: user)
   end
 
-  def unfollow!(user_id)
-    relationships.find_by(follower_id: user_id).destroy
+  def unfollow!(user)
+    relationships.find_by(follower: user).destroy!
   end
 end
