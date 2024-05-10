@@ -9,6 +9,7 @@
             .card-text
               = post.content
             .footer-text.text-end
+              -# todo:コードが汚いので切り分ける
               - if user_signed_in?
                 - if current_user.following?(post)
                   = button_to 'フォロー', root_path, class: 'btn btn-primary'
