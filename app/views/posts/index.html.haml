@@ -8,3 +8,10 @@
           .card-body
             .card-text
               = post.content
+            .footer-text.text-end
+              - if user_signed_in?
+                - if current_user.following?(post)
+                  = button_to 'フォロー', root_path, class: 'btn btn-primary'
+                - else
+                  = button_to 'フォロー解除', root_path, class: 'btn btn-danger'
+                = post.user.name
