@@ -3,16 +3,16 @@
 .row
   - @posts.each do |post|
     .col-8.mt-4.mx-auto
-      = link_to post_path(post), class: 'text-decoration-none' do
-        .card.shadow
-          .card-body
-            .card-text
-              = post.content
-            .footer-text.text-end
-              -# todo:コードが汚いので切り分ける
-              - if user_signed_in?
-                - if current_user.following?(post)
-                  = button_to 'フォロー', root_path, class: 'btn btn-primary'
+      .card.shadow
+        .card-body
+          .card-text
+            = link_to post.content, post_path(post), class: 'text-decoration-none text-body'
+          .footer-text.text-end
+            -# todo:リファクタリング
+            - if user_signed_in?
+              - unless current_user == post.user
+                - if current_user.following?(post.user)
+                  = button_to 'フォロー解除', relationships_path(post.user), class: 'btn btn-danger'
                 - else
-                  = button_to 'フォロー解除', root_path, class: 'btn btn-danger'
-                = post.user.name
+                  = button_to 'フォロー', relationships_path(post.user), class: 'btn btn-primary'
+            = post.user.name
