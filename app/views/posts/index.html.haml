@@ -12,7 +12,7 @@
             - if user_signed_in?
               - unless current_user == post.user
                 - if current_user.following?(post.user)
-                  = button_to 'フォロー解除', relationships_path(post.user), class: 'btn btn-danger'
+                  = button_to 'フォロー解除', relationship_path(current_user.active_relationships.find_by(follower_id: post.user.id)), class: 'btn btn-danger', method: :delete
                 - else
-                  = button_to 'フォロー', relationships_path(post.user), class: 'btn btn-primary'
+                  = button_to 'フォロー', relationships_path(follower_id: post.user), class: 'btn btn-primary'
             = post.user.name
