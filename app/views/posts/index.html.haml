@@ -8,11 +8,9 @@
           .card-text
             = link_to post.content, post_path(post), class: 'text-decoration-none text-body'
           .footer-text.text-end
-            -# todo:リファクタリング
-            - if user_signed_in?
-              - unless current_user == post.user
-                - if current_user.following?(post.user)
-                  = button_to 'フォロー解除', relationship_path(current_user.active_relationships.find_by(follower_id: post.user.id)), class: 'btn btn-danger', method: :delete
-                - else
-                  = button_to 'フォロー', relationships_path(follower_id: post.user), class: 'btn btn-primary'
+            - if user_signed_in? && current_user != post.user
+              - if current_user.following?(post.user)
+                = button_to 'フォロー解除', relationship_path(current_user.active_relationships.find_by(follower_id: post.user.id)), class: 'btn btn-danger', method: :delete
+              - else
+                = button_to 'フォロー', relationships_path(follower_id: post.user), class: 'btn btn-primary'
             = post.user.name
