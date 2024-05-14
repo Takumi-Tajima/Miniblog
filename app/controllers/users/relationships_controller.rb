@@ -5,7 +5,7 @@ class Users::RelationshipsController < ApplicationController
   end
 
   def destroy
-    user = Relationship.find(params[:id]).following
+    user = Relationship.find(params[:id]).follower
     current_user.unfollow!(user.id)
     redirect_to request.referer || root_path, status: :see_other
   end
