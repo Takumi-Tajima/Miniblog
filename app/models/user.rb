@@ -18,6 +18,6 @@ class User < ApplicationRecord
   end
 
   def following?(user)
-    followings.exists?(user)
+    followings.exists?(user.id)
   end
 end
