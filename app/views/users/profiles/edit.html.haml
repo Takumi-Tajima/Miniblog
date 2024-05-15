@@ -4,5 +4,5 @@
       - @user.errors.full_messages.each do |message|
         %li= message
   = f.input :biography, placeholder: '自己紹介を入力してください'
-  = f.input :blog_url, placeholder: 'ブログのURLを入力してください'
+  = f.url_field :blog_url, placeholder: 'ブログのURLを入力'
   = f.button :submit, class: 'btn btn-primary'
