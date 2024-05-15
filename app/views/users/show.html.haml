@@ -1,2 +1,9 @@
-%h1 Users#show
-%p Find me in app/views/users/show.html.haml
+.row.justify-content-center
+  .col-md-8
+    .card
+      .card-title
+        %h1.h3= @user.name
+      .card-body
+        %p= @user.email
+        %p= @user.biography
+        %p= @user.blog_url
