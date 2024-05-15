@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users, only: [:show]
   root 'posts#index'
   scope module: :users do
     resources :posts, only: %i[new create edit update destroy]
