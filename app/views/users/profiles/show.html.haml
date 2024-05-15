@@ -9,3 +9,4 @@
         %p= @user.email
         %p= @user.biography
         %p= @user.blog_url
+    = link_to '編集', edit_profile_path(@user), class: 'btn btn-success mt-3'
