@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :followings, through: :active_relationships, source: :follower
   has_many :followers, through: :passive_relationships, source: :following
   validates :name, presence: true, format: { with: /\A[a-zA-Z]+\z/ }, length: { maximum: 20 }
-  validates :password, presence: true, length: { minimum: 6 }, format: { with: /\A(?=.*[a-zA-Z])(?=.*[0-9]).*\z/ }
 
   def follow(user_id)
     active_relationships.create(follower_id: user_id)
