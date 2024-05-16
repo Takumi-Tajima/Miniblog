@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  # ポスト一覧画面から自分のプロフィールリンクをクリックすると、自分のプロフィールページに遷移
   def redirect_profile_path_if_current_user
     redirect_to profile_path if current_user == @user
   end
