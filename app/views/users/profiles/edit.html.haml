@@ -1,4 +1,4 @@
-= simple_form_for @user do |f|
+= simple_form_for @user, url: profile_path do |f|
   - if @user.errors.any?
     %ul
       - @user.errors.full_messages.each do |message|
