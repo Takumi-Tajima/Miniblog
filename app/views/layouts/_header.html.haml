@@ -1,10 +1,14 @@
 %nav.navbar.navbar-expand-lg.navbar-light.bg-body-tertiary
   .container
     %ul.navbar-nav
-      = link_to 'Miniblog', root_path, class: 'navbar-brand fs-2'
-      = link_to 'プロフィール', profile_path, class: 'nav-link'
+      %li.nav-item
+        = link_to 'Miniblog', root_path, class: 'navbar-brand fs-2'
+      %li.nav-item
+        = link_to 'プロフィール', profile_path, class: 'nav-link'
     %ul.navbar-nav
       - if user_signed_in?
-        = link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-danger'
+        %li.nav-item
+          = link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-danger'
       - else
-        = link_to 'ログイン', new_user_session_path, class: 'btn btn-primary'
+        %li.nav-item
+          = link_to 'ログイン', new_user_session_path, class: 'btn btn-primary'
