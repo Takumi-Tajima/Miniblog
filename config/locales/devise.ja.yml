@@ -1,7 +1,7 @@
 ja:
   devise:
     failure:
-      invalid: メールアドレスまたはパスワードが正しくありません。
+      invalid: 名前またはパスワードが正しくありません。
     sessions:
       signed_in: ログインに成功しました。
       signed_out: ログアウトしました。
