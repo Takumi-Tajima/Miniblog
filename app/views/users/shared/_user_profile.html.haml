@@ -1,0 +1,14 @@
+- editable ||= false
+.row.justify-content-center
+  .col-md-8
+    .card
+      .card-body
+        .card-title
+          %h1.h3= user.name
+        .card-text
+          .email= user.email
+          .biography= user.biography
+          .blog_url= user.blog_url
+      - if editable
+        .card-footer
+          = link_to '編集', edit_profile_path, class: 'btn btn-success mt-3'
