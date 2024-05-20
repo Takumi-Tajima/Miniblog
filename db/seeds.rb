@@ -4,7 +4,5 @@
     email: Faker::Internet.email,
     password: Faker::Internet.password(min_length: 8)
   )
-
-  puts user.attributes
   user.save!
 end
