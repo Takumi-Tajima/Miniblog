@@ -10,7 +10,6 @@ RSpec.describe 'プロフィール機能', type: :system do
     end
 
     context '自分のプロフィール' do
-      # - 自分のプロフィールを確認できること
       it '自分のプロフィールを確認できること' do
         visit root_path
         # TODO: ヘッダーのメニュー名をMyProfileにする
@@ -20,7 +19,6 @@ RSpec.describe 'プロフィール機能', type: :system do
         expect(page).to have_content 'takumi@example.com'
       end
 
-      # - 投稿一覧の自分の名前から、自分のプロフィールを確認できること
       it 'ポストの投稿一覧の投稿者名リンクから自分のプロフィールを確認できること' do
         visit root_path
         within('.footer-text') do
@@ -39,7 +37,6 @@ RSpec.describe 'プロフィール機能', type: :system do
         create(:post, user: other_user)
       end
 
-      # - 他のユーザーのプロフィールを確認できること
       it '他のユーザーのプロフィールを確認できること' do
         visit root_path
         click_on 'dio'
@@ -58,7 +55,6 @@ RSpec.describe 'プロフィール機能', type: :system do
       sign_in user
     end
 
-    # - 編集画面から自分の自己紹介文とブログURLを変更できること
     it '自分の自己紹介文とブログURLを変更できること' do
       visit root_path
       # TODO: MyProfileに変更する
