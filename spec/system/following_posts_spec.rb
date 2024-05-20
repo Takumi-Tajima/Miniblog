@@ -14,10 +14,15 @@ RSpec.describe 'フォローしているユーザーの投稿一覧機能', type
 
   it 'フォローしているユーザーの投稿一覧が表示されること' do
     visit root_path
-    expect(page).to have_content 'jojo'
-    expect(page).to have_content 'oraora'
-    expect(page).to have_content 'dio'
-    expect(page).to have_content 'mudamuda'
+    cards = page.all('.card')
+    within cards[0] do
+      expect(page).to have_content 'jojo'
+      expect(page).to have_content 'oraora'
+    end
+    within cards[1] do
+      expect(page).to have_content 'dio'
+      expect(page).to have_content 'mudamuda'
+    end
     click_on 'フォロー中のユーザーの投稿'
     expect(page).to have_current_path following_posts_path
     expect(page).to have_content 'jojo'
