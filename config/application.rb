@@ -45,9 +45,9 @@ module Miniblog
       g.helper false
       g.test_framework :rspec,
       controller_specs: false,
-            view_specs: false,
-            request_specs: false,
-        routing_specs: false
-end
+      view_specs: false,
+      equest_specs: false,
+      routing_specs: false
+    end
   end
 end
