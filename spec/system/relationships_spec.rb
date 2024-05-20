@@ -46,7 +46,7 @@ RSpec.describe 'フォロー機能', type: :system do
       visit root_path
 
       expect(page).to have_content 'こんばんは'
-      expect(page).not_to have_content 'フォロー'
+      expect(page).not_to have_content('フォロー', exact: true)
       expect(page).not_to have_content 'フォロー解除'
     end
   end

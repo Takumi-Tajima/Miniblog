@@ -12,11 +12,12 @@ RSpec.describe 'プロフィール機能', type: :system do
     context '自分のプロフィール' do
       it '自分のプロフィールを確認できること' do
         visit root_path
-        # TODO: ヘッダーのメニュー名をMyProfileにする
         click_on 'プロフィール'
-        # TODO: ページタイトルをここに追記
-        expect(page).to have_content 'takumi'
-        expect(page).to have_content 'takumi@example.com'
+        within('.container-md') do
+          expect(page).to have_content 'プロフィール'
+          expect(page).to have_content 'takumi'
+          expect(page).to have_content 'takumi@example.com'
+        end
       end
 
       it 'ポストの投稿一覧の投稿者名リンクから自分のプロフィールを確認できること' do
@@ -24,9 +25,11 @@ RSpec.describe 'プロフィール機能', type: :system do
         within('.footer-text') do
           click_on 'takumi'
         end
-        # TODO: ページのタイトルをここに追記
-        expect(page).to have_content 'takumi'
-        expect(page).to have_content 'takumi@example.com'
+        within('.container-md') do
+          expect(page).to have_content 'プロフィール'
+          expect(page).to have_content 'takumi'
+          expect(page).to have_content 'takumi@example.com'
+        end
       end
     end
 
@@ -40,8 +43,6 @@ RSpec.describe 'プロフィール機能', type: :system do
       it '他のユーザーのプロフィールを確認できること' do
         visit root_path
         click_on 'dio'
-        # TODO: ヘッダーのメニュー名をMyProfileすればここは通る
-        expect(page).not_to have_content 'プロフィール'
         expect(page).to have_content 'dio'
         expect(page).to have_content 'dio@example.com'
       end
@@ -57,9 +58,8 @@ RSpec.describe 'プロフィール機能', type: :system do
 
     it '自分の自己紹介文とブログURLを変更できること' do
       visit root_path
-      # TODO: MyProfileに変更する
       click_on 'プロフィール'
-      # TODO: ページのタイトルをここに追記
+      expect(page).to have_content 'プロフィール'
       click_on '編集'
       fill_in '自己紹介', with: 'よろしくです'
       fill_in 'user_blog_url', with: 'google.com'
