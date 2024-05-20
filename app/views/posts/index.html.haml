@@ -1,1 +1,3 @@
-= render 'users/shared/posts', posts: @posts, all_posts: true
+= link_to '新規投稿', new_post_path, class: 'btn btn-primary mt-4'
+= link_to 'フォロー中のユーザーの投稿', following_posts_path, class: 'btn btn-success mt-4'
+= render 'users/shared/posts', posts: @posts
