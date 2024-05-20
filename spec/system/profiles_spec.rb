@@ -12,10 +12,12 @@ RSpec.describe 'プロフィール機能', type: :system do
     context '自分のプロフィール' do
       it '自分のプロフィールを確認できること' do
         visit root_path
-        click_on 'MyProfile'
-        expect(page).to have_content 'プロフィール'
-        expect(page).to have_content 'takumi'
-        expect(page).to have_content 'takumi@example.com'
+        click_on 'プロフィール'
+        within('.container-md') do
+          expect(page).to have_content 'プロフィール'
+          expect(page).to have_content 'takumi'
+          expect(page).to have_content 'takumi@example.com'
+        end
       end
 
       it 'ポストの投稿一覧の投稿者名リンクから自分のプロフィールを確認できること' do
@@ -23,9 +25,11 @@ RSpec.describe 'プロフィール機能', type: :system do
         within('.footer-text') do
           click_on 'takumi'
         end
-        expect(page).to have_content 'プロフィール'
-        expect(page).to have_content 'takumi'
-        expect(page).to have_content 'takumi@example.com'
+        within('.container-md') do
+          expect(page).to have_content 'プロフィール'
+          expect(page).to have_content 'takumi'
+          expect(page).to have_content 'takumi@example.com'
+        end
       end
     end
 
@@ -54,7 +58,7 @@ RSpec.describe 'プロフィール機能', type: :system do
 
     it '自分の自己紹介文とブログURLを変更できること' do
       visit root_path
-      click_on 'MyProfile'
+      click_on 'プロフィール'
       expect(page).to have_content 'プロフィール'
       click_on '編集'
       fill_in '自己紹介', with: 'よろしくです'
