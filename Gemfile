@@ -19,6 +19,7 @@ gem 'turbo-rails'
 group :development, :test do
   gem 'debug'
   gem 'factory_bot_rails'
+  gem 'faker'
   gem 'haml-rails'
   gem 'rspec-rails'
 end
@@ -32,6 +33,5 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'faker'
   gem 'selenium-webdriver'
 end
